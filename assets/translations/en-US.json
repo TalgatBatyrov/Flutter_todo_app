@@ -1,0 +1,9 @@
+{
+    "app_bar_title": "Todo list",
+    "welcome": "Welcome",
+    "light_theme": "Light theme",
+    "language": "Language",
+    "list_is_empty": "The list is empty ",
+    "edit_todo": "Edit todo",
+    "creat_todo": "Creat todo"
+}
