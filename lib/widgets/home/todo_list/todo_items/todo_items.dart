@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:todo_shp_loc_cubit/cubits/theme/theme_cubit.dart';
 import 'package:todo_shp_loc_cubit/cubits/todo/todo_cubit.dart';
 import 'package:todo_shp_loc_cubit/models/todo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,7 +16,6 @@ class TodoItems extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final todoCubit = context.read<TodoCubit>();
-    final themeCubit = context.watch<ThemeCubit>();
     return Slidable(
         key: ValueKey(todo),
         startActionPane: ActionPane(
@@ -35,10 +33,6 @@ class TodoItems extends StatelessWidget {
           ],
         ),
         child: CheckboxListTile(
-          side: themeCubit.state.brightness == Brightness.light
-              ? const BorderSide(
-                  color: Color.fromARGB(132, 105, 101, 101), width: 1)
-              : const BorderSide(color: Colors.white, width: double.infinity),
           checkboxShape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(5))),
           controlAffinity: ListTileControlAffinity.leading,

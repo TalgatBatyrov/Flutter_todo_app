@@ -82,6 +82,7 @@ class _FloatingActionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
+      backgroundColor: const Color.fromARGB(255, 101, 118, 125),
       onPressed: () async {
         showCupertinoDialog(
           context: context,
