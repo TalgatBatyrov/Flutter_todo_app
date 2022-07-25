@@ -6,6 +6,7 @@ class Empty extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.locale;
     return Center(
       child: Text(
         tr('list_is_empty'),

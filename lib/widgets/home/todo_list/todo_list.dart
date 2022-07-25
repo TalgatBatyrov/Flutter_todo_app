@@ -30,9 +30,6 @@ class TodoLIst extends StatelessWidget {
               var todo = state.loadedTodo[index];
               return Container(
                 key: ValueKey('TodoItem__$todo'),
-                // color: index.isEven
-                // ? const Color.fromARGB(99, 221, 222, 197)
-                // : const Color.fromARGB(98, 181, 181, 178),
                 child: TodoItems(todo: todo),
               );
             },

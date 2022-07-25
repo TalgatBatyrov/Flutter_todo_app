@@ -8,9 +8,8 @@ import 'package:todo_shp_loc_cubit/models/todo.dart';
 class TodoCubit extends Cubit<TodoState> {
   List<dynamic> todoList = [];
   final controller = TextEditingController();
-  bool lightTheme = true;
 
-  TodoCubit() : super(TodoEmptyState()) {
+  TodoCubit() : super(TodoLoadingState()) {
     loadData();
   }
 

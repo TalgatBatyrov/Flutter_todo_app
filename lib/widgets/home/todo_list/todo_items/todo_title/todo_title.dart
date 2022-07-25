@@ -12,7 +12,7 @@ class TodoTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final todoCubit = context.read<TodoCubit>();
-    final lightTheme = context.read<ThemeCubit>().lightTheme;
+    final theme = context.read<ThemeCubit>().state.brightness;
     return GestureDetector(
       onDoubleTap: () {
         void editTodo() {
@@ -52,7 +52,7 @@ class TodoTitle extends StatelessWidget {
         style: TextStyle(
           fontSize: 16.0,
           fontFamily: 'SF Pro Text',
-          color: todo.completed && lightTheme
+          color: todo.completed && theme == Brightness.light
               ? Colors.grey[500]
               : const Color.fromARGB(255, 86, 81, 81),
           decoration: todo.completed ? TextDecoration.lineThrough : null,

@@ -5,5 +5,8 @@
     "language": "Language",
     "list_is_empty": "The list is empty ",
     "edit_todo": "Edit todo",
-    "creat_todo": "Creat todo"
+    "creat_todo": "Creat todo",
+    "cancel": "Cancel",
+    "save": "Save"
+
 }

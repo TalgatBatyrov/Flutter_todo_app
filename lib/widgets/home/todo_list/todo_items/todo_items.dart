@@ -18,7 +18,6 @@ class TodoItems extends StatelessWidget {
   Widget build(BuildContext context) {
     final todoCubit = context.read<TodoCubit>();
     final themeCubit = context.watch<ThemeCubit>();
-    var lightTheme = themeCubit.lightTheme;
     return Slidable(
         key: ValueKey(todo),
         startActionPane: ActionPane(
@@ -36,7 +35,7 @@ class TodoItems extends StatelessWidget {
           ],
         ),
         child: CheckboxListTile(
-          side: lightTheme
+          side: themeCubit.state.brightness == Brightness.light
               ? const BorderSide(
                   color: Color.fromARGB(132, 105, 101, 101), width: 1)
               : const BorderSide(color: Colors.white, width: double.infinity),

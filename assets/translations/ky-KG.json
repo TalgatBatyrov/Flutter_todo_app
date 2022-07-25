@@ -5,5 +5,7 @@
     "language": "Тилди тандоо",
     "list_is_empty": "Тизме бош",
     "edit_todo": "Ишти өзгөртүү",
-    "creat_todo": "Иш түзүү"
+    "creat_todo": "Иш түзүү",
+    "cancel": "Жокко чыгаруу",
+    "save": "Сактоо"
 }
