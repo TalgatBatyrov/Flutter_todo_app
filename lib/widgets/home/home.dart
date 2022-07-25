@@ -42,18 +42,9 @@ class _HomeState extends State<Home> {
                 context.setLocale(locale ?? context.locale);
               },
               items: const [
-                DropdownMenuItem(
-                  value: Locale('en', 'US'),
-                  child: Text('EN'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('ky', 'KG'),
-                  child: Text('KG'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('ru', 'RU'),
-                  child: Text('RU'),
-                ),
+                DropdownMenuItem(value: Locale('en', 'US'), child: Text('EN')),
+                DropdownMenuItem(value: Locale('ky', 'KG'), child: Text('KG')),
+                DropdownMenuItem(value: Locale('ru', 'RU'), child: Text('RU'))
               ],
               selectedItemBuilder: (context) => [
                 const Text('EN', style: TextStyle(color: Colors.white)),
@@ -72,56 +63,69 @@ class _HomeState extends State<Home> {
           ],
           title: Text(tr('app_bar_title').toUpperCase()),
         ),
-        body: const SizedBox(
-          child: Expanded(child: TodoLIst()),
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () async {
-            showCupertinoDialog(
-              context: context,
-              builder: (context) {
-                final todoController = TextEditingController();
-                return GestureDetector(
-                  onTap: () => Navigator.pop(context),
-                  child: Material(
-                    color: Colors.transparent,
-                    child: CupertinoAlertDialog(
-                      title: Text(tr('creat_todo')),
-                      content: TextField(
-                        controller: todoController,
-                        autofocus: true,
-                      ),
-                      actions: [
-                        CupertinoDialogAction(
-                          child: Text(tr('cancel')),
-                          onPressed: () => Navigator.pop(context),
-                        ),
-                        CupertinoDialogAction(
-                          child: Text(tr('save')),
-                          onPressed: () {
-                            if (todoController.text.isEmpty) {
-                              Navigator.pop(context);
-                              return;
-                            }
-                            _todosCubit.addTodo(
-                              Todo(
-                                title: todoController.text,
-                                completed: false,
-                              ),
-                            );
-                            Navigator.pop(context);
-                          },
-                        ),
-                      ],
-                    ),
+        body: const SizedBox(child: Expanded(child: TodoLIst())),
+        floatingActionButton: _FloatingActionButton(todosCubit: _todosCubit),
+      ),
+    );
+  }
+}
+
+class _FloatingActionButton extends StatelessWidget {
+  const _FloatingActionButton({
+    Key? key,
+    required TodoCubit todosCubit,
+  })  : _todosCubit = todosCubit,
+        super(key: key);
+
+  final TodoCubit _todosCubit;
+
+  @override
+  Widget build(BuildContext context) {
+    return FloatingActionButton(
+      onPressed: () async {
+        showCupertinoDialog(
+          context: context,
+          builder: (context) {
+            final todoController = TextEditingController();
+            return GestureDetector(
+              onTap: () => Navigator.pop(context),
+              child: Material(
+                color: Colors.transparent,
+                child: CupertinoAlertDialog(
+                  title: Text(tr('creat_todo')),
+                  content: TextField(
+                    controller: todoController,
+                    autofocus: true,
                   ),
-                );
-              },
+                  actions: [
+                    CupertinoDialogAction(
+                      child: Text(tr('cancel')),
+                      onPressed: () => Navigator.pop(context),
+                    ),
+                    CupertinoDialogAction(
+                      child: Text(tr('save')),
+                      onPressed: () {
+                        if (todoController.text.isEmpty) {
+                          Navigator.pop(context);
+                          return;
+                        }
+                        _todosCubit.addTodo(
+                          Todo(
+                            title: todoController.text,
+                            completed: false,
+                          ),
+                        );
+                        Navigator.pop(context);
+                      },
+                    ),
+                  ],
+                ),
+              ),
             );
           },
-          child: const Icon(Icons.add),
-        ),
-      ),
+        );
+      },
+      child: const Icon(Icons.add),
     );
   }
 }

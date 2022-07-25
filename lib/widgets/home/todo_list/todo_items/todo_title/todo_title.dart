@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo_shp_loc_cubit/cubits/theme/theme_cubit.dart';
@@ -15,34 +16,40 @@ class TodoTitle extends StatelessWidget {
     final theme = context.read<ThemeCubit>().state.brightness;
     return GestureDetector(
       onDoubleTap: () {
-        void editTodo() {
-          String inputValue = todoCubit.controller.text;
-          if (inputValue.isNotEmpty) {
-            todoCubit.updateTodo(todo, inputValue);
-          }
-          Navigator.of(context).pop();
-        }
-
-        showDialog(
+        showCupertinoDialog(
           context: context,
-          builder: (ctx) {
-            todoCubit.controller.text = todo.title;
-            return AlertDialog(
-              title: Text(tr('edit_todo')),
-              content: TextField(
-                onEditingComplete: () => editTodo(),
-                controller: todoCubit.controller,
-                autofocus: true,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
+          builder: (context) {
+            final todoController = TextEditingController();
+            todoController.text = todo.title;
+            return GestureDetector(
+              onTap: () => Navigator.pop(context),
+              child: Material(
+                color: Colors.transparent,
+                child: CupertinoAlertDialog(
+                  title: Text(tr('edit_todo')),
+                  content: TextField(
+                    controller: todoController,
+                    autofocus: true,
+                  ),
+                  actions: [
+                    CupertinoDialogAction(
+                      child: Text(tr('cancel')),
+                      onPressed: () => Navigator.pop(context),
+                    ),
+                    CupertinoDialogAction(
+                      child: Text(tr('save')),
+                      onPressed: () {
+                        if (todoController.text.isEmpty) {
+                          Navigator.pop(context);
+                          return;
+                        }
+                        todoCubit.updateTodo(todo, todoController.text);
+                        Navigator.pop(context);
+                      },
+                    ),
+                  ],
                 ),
               ),
-              actions: <Widget>[
-                TextButton(
-                  onPressed: () => editTodo(),
-                  child: const Text("Ok"),
-                ),
-              ],
             );
           },
         );
