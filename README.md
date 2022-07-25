@@ -1,6 +1,17 @@
 Hello, this is a to-do app.
 
-## Technologies such as BLoc(Cubit), shared_preferences, easy_localization are used here
-![dismiss](https://user-images.githubusercontent.com/90198155/180000371-ab72b9ee-9a92-4cd8-a9f1-ed5484ff4083.jpg)![photo_2022-07-20_19-46-10](https://user-images.githubusercontent.com/90198155/180000447-75b1a0c2-1c67-402d-92d0-74213eca3f13.jpg)
-![photo_2022-07-20_19-54-05](https://user-images.githubusercontent.com/90198155/180000454-e5ae7e9a-a0a3-443b-887c-56c487fcf1b9.jpg)
-![empty](https://user-images.githubusercontent.com/90198155/180000459-029b1fa0-b127-4009-9845-1a55152bad7a.jpg)
+## Technologies such as BLoc(Cubit), shared_preferences, easy_localization are used here.
+<div >
+  <div style="display: flex;  ">
+    <img width="17%" src="https://user-images.githubusercontent.com/90198155/180766282-35458dfe-34cf-49b2-9756-9998e30ca0b4.jpg"/>
+ <span>< ></span>
+<img width="17%" src="https://user-images.githubusercontent.com/90198155/180766290-394fd78f-a729-461f-af96-09db47471ea4.jpg"/>
+ <span>< ></span>
+<img width="17%" src="https://user-images.githubusercontent.com/90198155/180767045-d91e7cd4-6f58-46e6-92ce-5f197e0fcef1.jpg"/>
+ <span>< ></span>
+<img width="17%" src="https://user-images.githubusercontent.com/90198155/180766311-b775a6be-d370-4511-89b0-99a8796ac9a7.jpg"/>
+ <span>< ></span>
+<img width="17%" src="https://user-images.githubusercontent.com/90198155/180766322-3fda60be-5965-41ea-804d-c604e11bb052.jpg"/>
+  </div>
+</div>
+
