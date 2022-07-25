@@ -11,7 +11,7 @@ Hello, this is a to-do app.
  <span>< ></span>
 <img width="15%" src="https://user-images.githubusercontent.com/90198155/180766311-b775a6be-d370-4511-89b0-99a8796ac9a7.jpg"/>
  <span>< ></span>
-<img width="17%" src="https://user-images.githubusercontent.com/90198155/180766322-3fda60be-5965-41ea-804d-c604e11bb052.jpg"/>
+<img width="15%" src="https://user-images.githubusercontent.com/90198155/180766322-3fda60be-5965-41ea-804d-c604e11bb052.jpg"/>
   </div>
 </div>
 
